@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>1„61†51†5</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234CAF50'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'%3E1„6%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+  <title>خفف</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234CAF50'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'%3Eخ%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -85,108 +85,108 @@
 </head>
 <body>
 
-<!-- 1…21ƒ91…21„1 1ƒ91†81„01„71ƒ3 -->
+<!-- شاشة البدء -->
 <div id="onboardingScreen" class="onboarding-screen">
   <div class="onboarding-card">
-    <h1>1„61†51†5</h1>
-    <p>1†81‡01„01„71ƒ5 1„91„51†81„1 1ƒ91†81„21„51†51‡41…0</p>
-    <div class="input-group"><label>1ƒ91†81…71†91„9 (1„01ƒ91†81…11‡01‡21ƒ91„2)</label><input type="number" id="ageInput" placeholder="1†91„31ƒ91†8: 30" min="15" max="100" value="30"></div>
-    <div class="input-group"><label>1ƒ91†81‡21…01‡0 (1†71„41†9)</label><input type="number" id="weightInput" placeholder="1†91„31ƒ91†8: 70" min="30" max="250" value="70" step="0.1"></div>
-    <div class="input-group"><label>1ƒ91†81…51‡21†8 (1…11†9)</label><input type="number" id="heightInput" placeholder="1†91„31ƒ91†8: 170" min="100" max="250" value="170"></div>
-    <div class="input-group"><label>1ƒ91†81„41‡01…1</label><select id="genderSelect"><option value="male">1„81†71„9</option><option value="female">1ƒ51‡01„31‡3</option></select></div>
+    <h1>خفف</h1>
+    <p>لنبدأ رحلة التحفيز</p>
+    <div class="input-group"><label>العمر (بالسنوات)</label><input type="number" id="ageInput" placeholder="مثال: 30" min="15" max="100" value="30"></div>
+    <div class="input-group"><label>الوزن (كجم)</label><input type="number" id="weightInput" placeholder="مثال: 70" min="30" max="250" value="70" step="0.1"></div>
+    <div class="input-group"><label>الطول (سم)</label><input type="number" id="heightInput" placeholder="مثال: 170" min="100" max="250" value="170"></div>
+    <div class="input-group"><label>الجنس</label><select id="genderSelect"><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
     <div class="input-group">
-      <label>1†91…11„21‡21‡3 1ƒ91†81‡01…21ƒ91…5 1ƒ91†81‡41‡21†91‡4</label>
+      <label>مستوى النشاط اليومي</label>
       <select id="activitySelect">
-        <option value="1.2">1†61†81‡41†8 1ƒ91†81„51„91†71„1 (1…51ƒ91†81„012 1…71†91†8 1†91†71„21„01‡4)</option>
-        <option value="1.375" selected>1‡01…21ƒ91…5 1„61†51‡41†5 (1„21†91ƒ91„91‡41‡0 1-3 1ƒ51‡41ƒ91†9/1ƒ51…11„01‡21…7)</option>
-        <option value="1.55">1‡01…21ƒ91…5 1†91„21‡21…11…5 (1„21†91ƒ91„91‡41‡0 3-5 1ƒ51‡41ƒ91†9/1ƒ51…11„01‡21…7)</option>
-        <option value="1.725">1‡01…21ƒ91…5 1…71ƒ91†81‡7 (1„21†91ƒ91„91‡41‡0 1‡41‡21†91‡41„1 1†91†71„31†51„1)</option>
-        <option value="1.9">1‡01…21ƒ91…5 1†91†71„31†5 (1„91‡41ƒ91…41‡4 1†91„51„21„91†5)</option>
+        <option value="1.2">قليل الحركة (طالب، عمل مكتبي)</option>
+        <option value="1.375" selected>نشاط خفيف (تمارين 1-3 أيام/أسبوع)</option>
+        <option value="1.55">نشاط متوسط (تمارين 3-5 أيام/أسبوع)</option>
+        <option value="1.725">نشاط عالٍ (تمارين يومية مكثفة)</option>
+        <option value="1.9">نشاط مكثف (رياضي محترف)</option>
       </select>
     </div>
-    <button class="btn-primary" id="saveProfileBtn">1ƒ91„01„71ƒ5</button>
+    <button class="btn-primary" id="saveProfileBtn">ابدأ</button>
   </div>
 </div>
 
-<!-- 1ƒ91†81„21…51„01‡41†6 1ƒ91†81„91ƒ81‡41…11‡4 -->
+<!-- التطبيق الرئيسي -->
 <div id="mainApp" class="app-container hidden">
   <div class="header">
-    <h2>1„61†51†5</h2>
+    <h2>خفف</h2>
     <div class="header-icons">
-      <button class="icon-btn" id="profileEditBtn" title="1„21…71„71‡41†8 1ƒ91†81†91†81†5 1ƒ91†81…21„61…31‡4">”9Ó4</button>
-      <button class="icon-btn" id="menuToggleBtn">7§2</button>
+      <button class="icon-btn" id="profileEditBtn" title="تعديل الملف الشخصي">👤</button>
+      <button class="icon-btn" id="menuToggleBtn">☰</button>
     </div>
   </div>
   <div class="today-card">
     <div class="today-header">
       <span class="date-badge" id="todayDateLabel"></span>
-      <span class="profile-trigger" id="profileTrigger"><span>”9Ó4</span> <span id="userGreeting">1†91…11„21„61„71†9</span></span>
+      <span class="profile-trigger" id="profileTrigger"><span>👤</span> <span id="userGreeting">مستخدم</span></span>
     </div>
     <div class="stats-row">
-      <div class="stat-item"><div class="stat-value" id="eatenValue">0</div><div class="stat-label">1…11…71„91„1 1†91ƒ51†71‡21†81„1</div></div>
-      <div class="stat-item"><div class="stat-value" id="burnedValue">0</div><div class="stat-label">1…11…71„91„1 1†91„51„91‡21†61„1</div></div>
+      <div class="stat-item"><div class="stat-value" id="eatenValue">0</div><div class="stat-label">سعرة مأكولة</div></div>
+      <div class="stat-item"><div class="stat-value" id="burnedValue">0</div><div class="stat-label">سعرة محروقة</div></div>
     </div>
-    <div id="deficitDisplay" class="deficit-badge">1…71„41…0: 0 1…11…71„91„1</div>
-    <div id="tdeeDisplay" class="tdee-info">7²3 1ƒ91„51„21‡41ƒ91„41†7 1ƒ91†81‡41‡21†91‡4: 0 1…11…71„91„1</div>
+    <div id="deficitDisplay" class="deficit-badge">عجز: 0 سعرة</div>
+    <div id="tdeeDisplay" class="tdee-info">⚡ احتياجك اليومي: 0 سعرة</div>
     
     <div class="weight-row">
       <div class="weight-item">
-        <div class="weight-label">7±2„1‚5 1ƒ91†81‡21…01‡0 1ƒ91†81„51ƒ91†81‡4</div>
-        <div><span class="weight-value" id="currentWeightValue">70.0</span><span class="weight-unit">1†71„41†9</span></div>
+        <div class="weight-label">⚖️ الوزن الحالي</div>
+        <div><span class="weight-value" id="currentWeightValue">70.0</span><span class="weight-unit">كجم</span></div>
       </div>
       <div class="weight-item">
-        <div class="weight-label">”9Ý5 1ƒ91†81‡21…01‡0 1ƒ91†81†91„21‡21†61…7</div>
-        <div><span class="weight-value" id="predictedWeightValue">70.0</span><span class="weight-unit">1†71„41†9</span></div>
+        <div class="weight-label">📉 الوزن المتوقع</div>
+        <div><span class="weight-value" id="predictedWeightValue">70.0</span><span class="weight-unit">كجم</span></div>
       </div>
     </div>
   </div>
-  <div class="history-title">”9Ý1 1ƒ91†81ƒ51‡41ƒ91†9 1ƒ91†81…11ƒ91„01†61„1</div>
+  <div class="history-title">📅 الأيام السابقة</div>
   <div class="history-list" id="historyListContainer"></div>
 </div>
 
-<!-- 1ƒ91†81†61ƒ91ƒ81†91„1 1ƒ91†81„41ƒ91‡01„01‡41„1 -->
+<!-- القائمة الجانبية -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="drawer">
-  <div class="drawer-header">1ƒ91†81†61ƒ91ƒ81†91„1</div>
+  <div class="drawer-header">القائمة</div>
   <ul class="drawer-menu">
-    <li id="menuEatEntry"><span class="emoji-icon">”9¼3„1‚5</span> 1†71†9 1…11…71„91„1 1ƒ51†71†81„2 1ƒ91†81‡41‡21†9</li>
-    <li id="menuWalkEntry"><span class="emoji-icon">•08</span> 1†71†9 1…11…71„91„1 1„51„91†61„2 1ƒ91†81‡41‡21†9</li>
-    <li id="menuCameraEntry"><span class="emoji-icon">”9â2</span> 1…31‡21ˆ11„9 1‡21„41„01„21†7</li>
-    <li id="menuCalendar"><span class="emoji-icon">”9Ý2</span> 1ƒ91†81„21†61‡21‡41†9</li>
-    <li id="menuDeficitDetails"><span class="emoji-icon">7±2„1‚5</span> 1…71„41…0 1ƒ91†81‡41‡21†9</li>
+    <li id="menuEatEntry"><span class="emoji-icon">🍽️</span> كم سعرة أكلت اليوم</li>
+    <li id="menuWalkEntry"><span class="emoji-icon">🚶</span> كم سعرة حرقت اليوم</li>
+    <li id="menuCameraEntry"><span class="emoji-icon">📸</span> صوّر وجبتك</li>
+    <li id="menuCalendar"><span class="emoji-icon">📆</span> التقويم</li>
+    <li id="menuDeficitDetails"><span class="emoji-icon">⚖️</span> عجز اليوم</li>
   </ul>
 </div>
 
-<!-- 1†91‡21„71ƒ91†8 1ƒ91†81ƒ51†71†8 -->
+<!-- مودال الأكل -->
 <div class="modal" id="eatModal">
   <div class="modal-content">
-    <h3>”9¼3„1‚5 1…11…71„91ƒ91„2 1ƒ91†81‡41‡21†9</h3>
-    <div class="modal-input"><label>1†71†9 1…11…71„91„1 1ƒ51†71†81„21ƒ1</label><input type="number" id="eatCaloriesInput" placeholder="1ƒ51„71„61†8 1ƒ91†81…11…71„91ƒ91„2" min="0" step="10"></div>
-    <div class="modal-actions"><button class="btn-secondary" id="cancelEatBtn">1ƒ71†81…81ƒ91ƒ3</button><button class="btn-primary" id="saveEatBtn" style="margin-top:0;">1„51†51…6</button></div>
+    <h3>🍽️ سعرات اليوم</h3>
+    <div class="modal-input"><label>كم سعرة أكلت؟</label><input type="number" id="eatCaloriesInput" placeholder="أدخل السعرات" min="0" step="10"></div>
+    <div class="modal-actions"><button class="btn-secondary" id="cancelEatBtn">إلغاء</button><button class="btn-primary" id="saveEatBtn" style="margin-top:0;">حفظ</button></div>
   </div>
 </div>
 
-<!-- 1†91‡21„71ƒ91†8 1ƒ91†81†91…21‡4 -->
+<!-- مودال المشي -->
 <div class="modal" id="walkModal">
   <div class="modal-content">
-    <h3>•08 1„51„91†6 1ƒ91†81†91…21‡4</h3>
-    <div class="modal-input"><label>1ƒ91†81†91…11ƒ91†51„1 (1†91„21„9)</label><input type="number" id="distanceInput" placeholder="1†91„31ƒ91†8: 2000" min="0" step="100"></div>
-    <div class="modal-input"><label>1ƒ91†81…01†91‡0 (1„71†61ƒ91ƒ81†6:1„31‡21ƒ91‡01‡4)</label><div style="display: flex; gap: 8px;"><input type="number" id="walkMinutes" placeholder="1„71†61ƒ91ƒ81†6" min="0" value="0" style="width:50%"><input type="number" id="walkSeconds" placeholder="1„31‡21ƒ91‡01‡4" min="0" max="59" value="0" style="width:50%"></div></div>
+    <h3>🚶 حرق المشي</h3>
+    <div class="modal-input"><label>المسافة (متر)</label><input type="number" id="distanceInput" placeholder="مثال: 2000" min="0" step="100"></div>
+    <div class="modal-input"><label>الزمن (دقائق:ثواني)</label><div style="display: flex; gap: 8px;"><input type="number" id="walkMinutes" placeholder="دقائق" min="0" value="0" style="width:50%"><input type="number" id="walkSeconds" placeholder="ثواني" min="0" max="59" value="0" style="width:50%"></div></div>
     <div id="speedDisplay" class="speed-info hidden"></div>
-    <div class="modal-actions"><button class="btn-secondary" id="cancelWalkBtn">1ƒ71†81…81ƒ91ƒ3</button><button class="btn-primary" id="saveWalkBtn" style="margin-top:0;">1„51…11ƒ91„0 1‡21„51†51…6</button></div>
+    <div class="modal-actions"><button class="btn-secondary" id="cancelWalkBtn">إلغاء</button><button class="btn-primary" id="saveWalkBtn" style="margin-top:0;">حساب وحفظ</button></div>
   </div>
 </div>
 
-<!-- 1†91‡21„71ƒ91†8 1ƒ91†81†71ƒ91†91‡41„91ƒ9 -->
+<!-- مودال الكاميرا -->
 <div class="modal" id="cameraModal">
   <div class="modal-content" style="max-width: 450px;">
-    <h3>”9â2 1…31‡21ˆ11„9 1‡21„41„01„21†7</h3>
+    <h3>📸 صوّر وجبتك</h3>
     <div class="camera-container">
       <video id="cameraVideo" autoplay playsinline></video>
       <canvas id="captureCanvas"></canvas>
       <div class="camera-controls">
-        <button class="btn-secondary" id="captureBtn">”9â1 1ƒ91†81„21†61ƒ91…5</button>
-        <button class="btn-secondary" id="closeCameraBtn">1ƒ71†81…81ƒ91ƒ3</button>
+        <button class="btn-secondary" id="captureBtn">📷 التقاط</button>
+        <button class="btn-secondary" id="closeCameraBtn">إلغاء</button>
       </div>
       <div id="analysisStatus" style="margin-top:12px; font-weight:500;"></div>
       <div id="analysisResult" class="analysis-result hidden"></div>
@@ -194,43 +194,43 @@
   </div>
 </div>
 
-<!-- 1†91‡21„71ƒ91†8 1ƒ91†81„21†61‡21‡41†9 -->
+<!-- مودال التقويم -->
 <div class="modal" id="calendarModal">
   <div class="modal-content" style="max-width: 400px;">
-    <h3>”9Ý2 1ƒ91†81„21†61‡21‡41†9 1‡21ƒ91†81…71„41…0</h3>
+    <h3>📆 التقويم والعجز</h3>
     <div class="calendar-container" id="calendarContent"></div>
-    <div class="modal-actions"><button class="btn-secondary" id="closeCalendarBtn">1ƒ71…81†81ƒ91†6</button></div>
+    <div class="modal-actions"><button class="btn-secondary" id="closeCalendarBtn">إغلاق</button></div>
   </div>
 </div>
 
-<!-- 1†91‡21„71ƒ91†8 1„21†51ƒ91…31‡41†8 1ƒ91†81…71„41…0 -->
+<!-- مودال تفاصيل العجز -->
 <div class="modal" id="deficitModal">
   <div class="modal-content">
-    <h3>7±2„1‚5 1„21†51ƒ91…31‡41†8 1…71„41…0 1ƒ91†81‡41‡21†9</h3>
+    <h3>⚖️ تفاصيل عجز اليوم</h3>
     <div id="deficitDetailsText" style="margin-bottom: 16px;"></div>
-    <div class="modal-actions"><button class="btn-secondary" id="closeDeficitBtn">1„51…11‡01ƒ91‡5</button></div>
+    <div class="modal-actions"><button class="btn-secondary" id="closeDeficitBtn">حسناً</button></div>
   </div>
 </div>
 
-<!-- 1†91‡21„71ƒ91†8 1„21…71„71‡41†8 1ƒ91†81†91†81†5 1ƒ91†81…21„61…31‡4 -->
+<!-- مودال تعديل الملف الشخصي -->
 <div class="modal profile-modal" id="profileModal">
   <div class="modal-content">
-    <h3>”9Ó4 1„21…71„71‡41†8 1ƒ91†81„01‡41ƒ91‡01ƒ91„2</h3>
-    <div class="input-group"><label>1ƒ91†81…71†91„9</label><input type="number" id="editAge" min="15" max="100"></div>
-    <div class="input-group"><label>1ƒ91†81‡21…01‡0 1ƒ91†81„51ƒ91†81‡4 (1†71„41†9)</label><input type="number" id="editWeight" min="30" max="250" step="0.1"></div>
-    <div class="input-group"><label>1ƒ91†81…51‡21†8 (1…11†9)</label><input type="number" id="editHeight" min="100" max="250"></div>
-    <div class="input-group"><label>1ƒ91†81„41‡01…1</label><select id="editGender"><option value="male">1„81†71„9</option><option value="female">1ƒ51‡01„31‡3</option></select></div>
+    <h3>👤 تعديل البيانات</h3>
+    <div class="input-group"><label>العمر</label><input type="number" id="editAge" min="15" max="100"></div>
+    <div class="input-group"><label>الوزن الحالي (كجم)</label><input type="number" id="editWeight" min="30" max="250" step="0.1"></div>
+    <div class="input-group"><label>الطول (سم)</label><input type="number" id="editHeight" min="100" max="250"></div>
+    <div class="input-group"><label>الجنس</label><select id="editGender"><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
     <div class="input-group">
-      <label>1†91…11„21‡21‡3 1ƒ91†81‡01…21ƒ91…5</label>
+      <label>مستوى النشاط</label>
       <select id="editActivity">
-        <option value="1.2">1†61†81‡41†8 1ƒ91†81„51„91†71„1</option>
-        <option value="1.375">1‡01…21ƒ91…5 1„61†51‡41†5</option>
-        <option value="1.55">1‡01…21ƒ91…5 1†91„21‡21…11…5</option>
-        <option value="1.725">1‡01…21ƒ91…5 1…71ƒ91†81‡7</option>
-        <option value="1.9">1‡01…21ƒ91…5 1†91†71„31†5</option>
+        <option value="1.2">قليل الحركة</option>
+        <option value="1.375">نشاط خفيف</option>
+        <option value="1.55">نشاط متوسط</option>
+        <option value="1.725">نشاط عالٍ</option>
+        <option value="1.9">نشاط مكثف</option>
       </select>
     </div>
-    <div class="modal-actions"><button class="btn-secondary" id="cancelProfileBtn">1ƒ71†81…81ƒ91ƒ3</button><button class="btn-primary" id="updateProfileBtn">1„21„51„71‡41„3</button></div>
+    <div class="modal-actions"><button class="btn-secondary" id="cancelProfileBtn">إلغاء</button><button class="btn-primary" id="updateProfileBtn">تحديث</button></div>
   </div>
 </div>
 
@@ -298,14 +298,14 @@
       document.getElementById('eatenValue').textContent = eaten;
       document.getElementById('burnedValue').textContent = burned;
       const deficitEl = document.getElementById('deficitDisplay');
-      deficitEl.textContent = `${deficit >= 0 ? '1…71„41…0' : '1†51ƒ91ƒ81…4'}: ${Math.abs(Math.round(deficit))} 1…11…71„91„1`;
+      deficitEl.textContent = `${deficit >= 0 ? 'عجز' : 'فائض'}: ${Math.abs(Math.round(deficit))} سعرة`;
       deficitEl.className = `deficit-badge ${deficit >= 0 ? 'deficit-positive' : 'deficit-negative'}`;
-      document.getElementById('tdeeDisplay').textContent = `7²3 1ƒ91„51„21‡41ƒ91„41†7 1ƒ91†81‡41‡21†91‡4: ${tdee} 1…11…71„91„1`;
+      document.getElementById('tdeeDisplay').textContent = `⚡ احتياجك اليومي: ${tdee} سعرة`;
       document.getElementById('currentWeightValue').textContent = userData.weight.toFixed(1);
       document.getElementById('predictedWeightValue').textContent = calculatePredictedWeight().toFixed(1);
       document.getElementById('todayDateLabel').textContent = new Intl.DateTimeFormat('ar-EG', {year:'numeric',month:'long',day:'numeric'}).format(new Date());
-      const actLabels = {'1.2':'1†61†81‡41†8','1.375':'1„61†51‡41†5','1.55':'1†91„21‡21…11…5','1.725':'1…71ƒ91†81‡7','1.9':'1†91†71„31†5'};
-      document.getElementById('userGreeting').textContent = `${userData.gender==='male'?'1ƒ51„61‡4':'1ƒ51„61„21‡4'} (${userData.weight.toFixed(1)} 1†71„41†9 | 7²3 ${actLabels[userData.activityLevel]||'1„61†51‡41†5'})`;
+      const actLabels = {'1.2':'قليل','1.375':'خفيف','1.55':'متوسط','1.725':'عالٍ','1.9':'مكثف'};
+      document.getElementById('userGreeting').textContent = `${userData.gender==='male'?'أخي':'أختي'} (${userData.weight.toFixed(1)} كجم | ⚡ ${actLabels[userData.activityLevel]||'خفيف'})`;
     }
 
     function renderHistory() {
@@ -315,14 +315,14 @@
         if(d === today) continue;
         const log = dailyLogs[d], deficit = computeDeficit(log.eaten, log.burned);
         const formatted = new Intl.DateTimeFormat('ar-EG', {month:'short', day:'numeric'}).format(new Date(d));
-        html += `<div class="day-item"><div class="day-info"><span class="day-date">${formatted}</span><div class="day-details"><span>”9¼3„1‚5 ${log.eaten}</span><span>”9æ7 ${log.burned}</span></div></div><div class="day-deficit ${deficit>=0?'deficit-positive':'deficit-negative'}">${deficit>=0?'1…71„41…0':'1†51ƒ91ƒ81…4'} ${Math.abs(Math.round(deficit))}</div></div>`;
+        html += `<div class="day-item"><div class="day-info"><span class="day-date">${formatted}</span><div class="day-details"><span>🍽️ ${log.eaten}</span><span>🔥 ${log.burned}</span></div></div><div class="day-deficit ${deficit>=0?'deficit-positive':'deficit-negative'}">${deficit>=0?'عجز':'فائض'} ${Math.abs(Math.round(deficit))}</div></div>`;
       }
-      container.innerHTML = html || '<div style="text-align:center; padding:20px;color:#888;">1†81ƒ9 1„21‡21„41„7 1ƒ51‡41ƒ91†9 1…11ƒ91„01†61„1 1„01…71„7</div>';
+      container.innerHTML = html || '<div style="text-align:center; padding:20px;color:#888;">لا توجد أيام سابقة بعد</div>';
     }
 
     function refreshUI() { ensureTodayLog(); updateTodayUI(); renderHistory(); }
 
-    // ----- 1ƒ91†81†71ƒ91†91‡41„91ƒ9 1‡21ƒ91†81„21„51†81‡41†8 -----
+    // ----- الكاميرا والتحليل -----
     const cameraModal = document.getElementById('cameraModal');
     const video = document.getElementById('cameraVideo');
     const canvas = document.getElementById('captureCanvas');
@@ -340,7 +340,7 @@
         analysisStatus.textContent = '';
         analysisResultDiv.classList.add('hidden');
       } catch(e) {
-        alert('1„21…71„81„9 1ƒ91†81‡21…31‡21†8 1ƒ71†81‡3 1ƒ91†81†71ƒ91†91‡41„91ƒ9. 1„21ƒ51†71„7 1†91‡0 1†91‡01„5 1ƒ91†81ƒ71„81‡0.');
+        alert('تعذر الوصول إلى الكاميرا. تأكد من منح الإذن.');
       }
     }
 
@@ -354,19 +354,19 @@
       canvas.width = video.videoWidth; canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
       const imageBase64 = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
-      analysisStatus.textContent = '77 1„41ƒ91„91‡4 1„21„51†81‡41†8 1ƒ91†81…31‡21„91„1...';
+      analysisStatus.textContent = '⏳ جاري تحليل الصورة...';
       analyzeFoodImage(imageBase64);
     });
 
     async function analyzeFoodImage(base64Image) {
       try {
-        const prompt = `1ƒ51‡01„2 1„61„01‡41„9 1„21…81„81‡41„1. 1„51†81†8 1…31‡21„91„1 1ƒ91†81…51…71ƒ91†9 1‡11„81‡1 1‡21†61†9 1†51†61…5 1„01„21†61„71‡41„9 1…71„71„7 1ƒ91†81…11…71„91ƒ91„2 1ƒ91†81„51„91ƒ91„91‡41„1 1ƒ91†81ƒ71„41†91ƒ91†81‡41„1 1†51‡4 1ƒ91†81‡21„41„01„1.
-1ƒ51…71„7 1ƒ91†81„91„7 1„01„21‡01…11‡41†6 JSON 1…31ƒ91„91†9 1‡41„51„21‡21‡4 1…71†81‡3 1ƒ91†81„51†61‡21†8 1ƒ91†81„21ƒ91†81‡41„1:
+        const prompt = `أنت خبير تغذية. حلل صورة الطعام هذه وقم فقط بتقدير عدد السعرات الحرارية الإجمالية في الوجبة.
+أعد الرد بتنسيق JSON صارم يحتوي على الحقول التالية:
 {
-  "meal_description": "1‡21…31†5 1†91„61„21…31„9 1†81†81‡21„41„01„1 1„01ƒ91†81…71„91„01‡41„1",
-  "estimated_calories": 1„91†61†9 1…31„51‡41„5
+  "meal_description": "وصف مختصر للوجبة بالعربية",
+  "estimated_calories": رقم صحيح
 }
-1†81ƒ9 1„21†61†9 1„01„21…41†91‡41‡0 1ƒ51‡4 1‡01…3 1ƒ41„61„9 1„61ƒ91„91„4 JSON.`;
+لا تقم بتضمين أي نص آخر خارج JSON.`;
         const response = await fetch(GEMINI_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -376,21 +376,21 @@
         });
         const data = await response.json();
         if (!data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
-          throw new Error('1†81†9 1‡41„21†9 1ƒ91…11„21†81ƒ91†9 1„91„7 1…31„51‡41„5 1†91‡0 Gemini');
+          throw new Error('لم يتم استلام رد صحيح من Gemini');
         }
         let jsonText = data.candidates[0].content.parts[0].text;
         jsonText = jsonText.replace(/```json|```/g, '').trim();
         const result = JSON.parse(jsonText);
         const calories = Math.round(result.estimated_calories) || 0;
-        const desc = result.meal_description || '1‡21„41„01„1';
+        const desc = result.meal_description || 'وجبة';
         analysisStatus.textContent = '';
         analysisResultDiv.classList.remove('hidden');
         analysisResultDiv.innerHTML = `
-          <p><strong>”9¼3„1‚5 ${desc}</strong></p>
-          <p style="font-size:28px; margin:8px 0;">”9æ7 ${calories} 1…11…71„91„1</p>
+          <p><strong>🍽️ ${desc}</strong></p>
+          <p style="font-size:28px; margin:8px 0;">🔥 ${calories} سعرة</p>
           <div style="display:flex; gap:10px; margin-top:12px;">
-            <button class="btn-primary" id="addAnalyzedCaloriesBtn" style="flex:1;">7¼3 1ƒ71…41ƒ91†51„1</button>
-            <button class="btn-secondary" id="cancelAnalyzedCaloriesBtn" style="flex:1;">7Ã4 1ƒ71†81…81ƒ91ƒ3</button>
+            <button class="btn-primary" id="addAnalyzedCaloriesBtn" style="flex:1;">✅ إضافة</button>
+            <button class="btn-secondary" id="cancelAnalyzedCaloriesBtn" style="flex:1;">❌ إلغاء</button>
           </div>
         `;
         document.getElementById('addAnalyzedCaloriesBtn').addEventListener('click', () => {
@@ -402,7 +402,7 @@
         });
         document.getElementById('cancelAnalyzedCaloriesBtn').addEventListener('click', closeCamera);
       } catch (error) {
-        analysisStatus.textContent = '7Ã4 1„51„71„3 1„61…51ƒ5: ' + error.message;
+        analysisStatus.textContent = '❌ حدث خطأ: ' + error.message;
         console.error(error);
       }
     }
@@ -413,7 +413,7 @@
       openCameraModal();
     });
 
-    // ----- 1„01ƒ91†61‡4 1ƒ91†81‡21…61ƒ91ƒ81†5 -----
+    // ----- باقي الوظائف -----
     function initApp() {
       loadData();
       if(!localStorage.getItem('khaffef_user')) {
@@ -472,31 +472,31 @@
       const mins = parseInt(document.getElementById('walkMinutes').value)||0, secs = parseInt(document.getElementById('walkSeconds').value)||0;
       if(!isNaN(dist) && dist>=0 && (mins+secs)>0) {
         const res = calculateWalkingCalories(dist,mins,secs);
-        document.getElementById('speedDisplay').textContent = `”9Ã3 1ƒ91†81…11„91…71„1: ${res.speed.toFixed(1)} 1†71†9/1…1 | MET: ${res.met} | ”9æ7 ${res.calories} 1…11…71„91„1`;
+        document.getElementById('speedDisplay').textContent = `🏃 السرعة: ${res.speed.toFixed(1)} كم/س | MET: ${res.met} | 🔥 ${res.calories} سعرة`;
         document.getElementById('speedDisplay').classList.remove('hidden');
         const today = getTodayStr(); if(!dailyLogs[today]) dailyLogs[today]={eaten:0,burned:0};
         dailyLogs[today].burned += res.calories; saveLogs(); refreshUI();
         setTimeout(()=>closeModal('walkModal'), 2000);
-      } else alert('1ƒ51„71„61†8 1†91…11ƒ91†51„1 1‡21…01†91‡0 1…31„51‡41„51‡41‡0');
+      } else alert('أدخل مسافة وزمن صحيحين');
     });
 
     function showDeficitDetails() {
       const today = getTodayStr(), log = dailyLogs[today]||{eaten:0,burned:0};
       const bmr = calculateBMR(), tdee = calculateTDEE(), totalOut = tdee + log.burned, deficit = totalOut - log.eaten;
       const totalDeficit = calculateTotalDeficit();
-      const actLabels = {'1.2':'1†61†81‡41†8','1.375':'1„61†51‡41†5','1.55':'1†91„21‡21…11…5','1.725':'1…71ƒ91†81‡7','1.9':'1†91†71„31†5'};
+      const actLabels = {'1.2':'قليل','1.375':'خفيف','1.55':'متوسط','1.725':'عالٍ','1.9':'مكثف'};
       document.getElementById('deficitDetailsText').innerHTML = `
-        <p>”9æ7 BMR: ${Math.round(bmr)} 1…11…71„91„1</p><p>7²3 1ƒ91†81‡01…21ƒ91…5: ${actLabels[userData.activityLevel]} (${userData.activityLevel})</p>
-        <p>”9Ý6 TDEE: ${tdee} 1…11…71„91„1</p><p>•08 1†91…21‡4: ${log.burned}</p><p>”9¼3„1‚5 1ƒ51†71†8: ${log.eaten}</p>
-        <p><strong>${deficit>=0?'1ƒ91†81…71„41…0':'1ƒ91†81†51ƒ91ƒ81…4'}: ${Math.abs(Math.round(deficit))} 1…11…71„91„1</strong></p>
-        <hr><p>”9Ý1 1ƒ71„41†91ƒ91†81‡4 1ƒ91†81…71„41…0 1ƒ91†81„21„91ƒ91†71†91‡4: ${Math.round(totalDeficit)} 1…11…71„91„1</p><p>7±2„1‚5 1„61…11ƒ91„91„1 1†91„21‡21†61…71„1: ${(totalDeficit/7700).toFixed(2)} 1†71„41†9</p>`;
+        <p>🔥 BMR: ${Math.round(bmr)} سعرة</p><p>⚡ النشاط: ${actLabels[userData.activityLevel]} (${userData.activityLevel})</p>
+        <p>📊 TDEE: ${tdee} سعرة</p><p>🚶 مشي: ${log.burned}</p><p>🍽️ أكل: ${log.eaten}</p>
+        <p><strong>${deficit>=0?'العجز':'الفائض'}: ${Math.abs(Math.round(deficit))} سعرة</strong></p>
+        <hr><p>📅 إجمالي العجز التراكمي: ${Math.round(totalDeficit)} سعرة</p><p>⚖️ خسارة متوقعة: ${(totalDeficit/7700).toFixed(2)} كجم</p>`;
     }
 
     function renderCalendar() {
       const today = new Date(), y = today.getFullYear(), m = today.getMonth();
       const firstDay = new Date(y,m,1), lastDay = new Date(y,m+1,0), start = firstDay.getDay();
       let html = `<div class="calendar-month">${new Intl.DateTimeFormat('ar-EG',{month:'long',year:'numeric'}).format(today)}</div><div class="calendar-grid">`;
-      ['1…11„01„2','1ƒ51„51„7','1ƒ71„31‡01‡41‡0','1„31†81ƒ91„31ƒ91ƒ3','1ƒ51„91„01…71ƒ91ƒ3','1„61†91‡41…1','1„41†91…71„1'].forEach(d=>html+=`<div style="font-weight:bold;">${d}</div>`);
+      ['سبت','أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة'].forEach(d=>html+=`<div style="font-weight:bold;">${d}</div>`);
       let day=1;
       for(let i=0;i<6;i++) for(let j=0;j<7;j++) {
         if(i===0 && j<start) html+='<div></div>';
@@ -511,8 +511,8 @@
       html+='</div>'; document.getElementById('calendarContent').innerHTML = html;
       document.querySelectorAll('.cal-day[data-date]').forEach(el=>el.addEventListener('click',function(){
         const ds=this.dataset.date, log=dailyLogs[ds];
-        if(log){ const def=computeDeficit(log.eaten,log.burned); alert(`${ds}\n”9¼3„1‚5 ${log.eaten}\n”9æ7 ${log.burned}\n${def>=0?'1…71„41…0':'1†51ƒ91ƒ81…4'}: ${Math.abs(Math.round(def))}`);}
-        else alert('1†81ƒ9 1„01‡41ƒ91‡01ƒ91„2');
+        if(log){ const def=computeDeficit(log.eaten,log.burned); alert(`${ds}\n🍽️ ${log.eaten}\n🔥 ${log.burned}\n${def>=0?'عجز':'فائض'}: ${Math.abs(Math.round(def))}`);}
+        else alert('لا بيانات');
       }));
     }
 
