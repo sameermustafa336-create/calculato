@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>خفف</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234CAF50'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'%3Eخ%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Tajawal', sans-serif; background: #f5f7fb; color: #1e2b3c; direction: rtl; height: 100vh; overflow: hidden; position: relative; }
+    .onboarding-screen { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #ffffff; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; transition: opacity 0.3s; }
+    .onboarding-card { max-width: 400px; width: 100%; background: white; padding: 30px 25px; border-radius: 28px; box-shadow: 0 20px 40px rgba(0,20,50,0.08); }
+    .onboarding-card h1 { text-align: center; color: #2e7d32; font-weight: 700; margin-bottom: 10px; font-size: 32px; }
+    .onboarding-card p { text-align: center; color: #5e6f7e; margin-bottom: 28px; }
+    .input-group { margin-bottom: 18px; }
+    .input-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #2c3e50; }
+    .input-group input, .input-group select { width: 100%; padding: 14px 16px; border: 1.5px solid #e0e7ed; border-radius: 18px; font-size: 16px; font-family: 'Tajawal', sans-serif; background: #fafbfc; transition: border 0.2s; }
+    .input-group input:focus, .input-group select:focus { border-color: #2e7d32; outline: none; background: white; }
+    .btn-primary { background: #2e7d32; color: white; border: none; padding: 16px 20px; border-radius: 30px; font-size: 18px; font-weight: 600; width: 100%; cursor: pointer; font-family: 'Tajawal', sans-serif; transition: background 0.2s; margin-top: 10px; }
+    .btn-primary:hover { background: #1b5e20; }
+    .app-container { height: 100vh; display: flex; flex-direction: column; background: #f5f7fb; }
+    .header { background: white; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-bottom: 1px solid #edf2f7; }
+    .header h2 { font-size: 24px; font-weight: 700; color: #1e2b3c; letter-spacing: -0.5px; }
+    .header-icons { display: flex; gap: 16px; }
+    .icon-btn { background: none; border: none; font-size: 24px; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #f0f4f9; color: #2c3e50; }
+    .today-card { background: white; margin: 16px 16px 8px 16px; padding: 20px; border-radius: 28px; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+    .today-header { display: flex; justify-content: space-between; margin-bottom: 16px; }
+    .date-badge { background: #eef6ef; color: #2e7d32; padding: 6px 14px; border-radius: 30px; font-weight: 500; font-size: 14px; }
+    .profile-trigger { display: flex; align-items: center; gap: 6px; background: #f0f4f9; padding: 6px 12px; border-radius: 30px; cursor: pointer; font-weight: 500; }
+    .stats-row { display: flex; justify-content: space-around; text-align: center; margin: 16px 0 8px; }
+    .stat-item { flex: 1; }
+    .stat-value { font-size: 28px; font-weight: 700; }
+    .stat-label { color: #6c7a89; font-size: 14px; margin-top: 4px; }
+    .deficit-badge { text-align: center; padding: 10px; border-radius: 40px; margin-top: 10px; font-weight: 700; font-size: 18px; }
+    .deficit-positive { background: #e8f5e9; color: #2e7d32; }
+    .deficit-negative { background: #ffebee; color: #c62828; }
+    .tdee-info { text-align: center; margin-top: 8px; color: #3a5a78; font-weight: 500; }
+    .weight-row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid #eef2f6; }
+    .weight-item { text-align: center; flex: 1; }
+    .weight-label { color: #6c7a89; font-size: 14px; margin-bottom: 4px; }
+    .weight-value { font-size: 24px; font-weight: 700; }
+    .weight-unit { font-size: 14px; color: #8899aa; margin-right: 4px; }
+    .history-title { margin: 16px 16px 8px; font-weight: 600; color: #3a4a5a; }
+    .history-list { flex: 1; overflow-y: auto; padding: 0 16px 20px; }
+    .day-item { background: white; border-radius: 20px; padding: 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 6px rgba(0,0,0,0.02); border: 1px solid #edf2f7; }
+    .day-info { display: flex; flex-direction: column; }
+    .day-date { font-weight: 600; margin-bottom: 4px; }
+    .day-details { display: flex; gap: 16px; color: #5e6f7e; font-size: 14px; }
+    .day-deficit { font-weight: 700; padding: 6px 14px; border-radius: 30px; font-size: 16px; }
+    .drawer-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 999; opacity: 0; visibility: hidden; transition: 0.2s; }
+    .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: white; z-index: 1000; transform: translateX(100%); transition: transform 0.25s ease; box-shadow: -2px 0 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; padding: 24px 0; }
+    .drawer.open { transform: translateX(0); }
+    .drawer-overlay.open { opacity: 1; visibility: visible; }
+    .drawer-header { padding: 0 20px 20px; border-bottom: 1px solid #edf2f7; font-weight: 700; font-size: 20px; }
+    .drawer-menu { list-style: none; padding: 16px 8px; }
+    .drawer-menu li { padding: 14px 20px; margin: 4px 0; border-radius: 16px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 12px; transition: background 0.15s; }
+    .drawer-menu li:hover { background: #f0f4f9; }
+    .drawer-menu .emoji-icon { font-size: 22px; }
+    .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1100; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.2s; }
+    .modal.open { opacity: 1; visibility: visible; }
+    .modal-content { background: white; width: 90%; max-width: 360px; border-radius: 32px; padding: 24px; }
+    .modal-content h3 { margin-bottom: 20px; color: #1e2b3c; }
+    .modal-input { margin-bottom: 16px; }
+    .modal-input label { display: block; margin-bottom: 6px; font-weight: 500; }
+    .modal-input input { width: 100%; padding: 14px; border: 1.5px solid #e0e7ed; border-radius: 18px; font-size: 16px; }
+    .modal-actions { display: flex; gap: 12px; margin-top: 20px; }
+    .btn-secondary { background: #eef2f6; border: none; padding: 14px; border-radius: 30px; font-weight: 600; flex: 1; cursor: pointer; }
+    .calendar-container { max-height: 400px; overflow-y: auto; }
+    .calendar-month { text-align: center; margin-bottom: 12px; font-weight: 700; }
+    .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+    .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #f5f7fb; border-radius: 12px; font-weight: 500; cursor: pointer; }
+    .cal-day.deficit { background: #c8e6c9; color: #1e4a1e; }
+    .cal-day.surplus { background: #ffcdd2; color: #a11f1f; }
+    .cal-day.today-ring { border: 2px solid #2e7d32; }
+    .profile-modal .modal-content { max-width: 380px; }
+    .hidden { display: none !important; }
+    .speed-info { margin-top: 10px; padding: 10px; background: #f0f7ff; border-radius: 16px; font-size: 14px; text-align: center; color: #1e4a7a; }
+    .camera-container { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    #cameraVideo { width: 100%; max-height: 280px; border-radius: 24px; background: #000; transform: scaleX(-1); }
+    #captureCanvas { display: none; }
+    .camera-controls { display: flex; gap: 12px; justify-content: center; }
+    .analysis-result { margin-top: 16px; padding: 16px; background: #f0f7ff; border-radius: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<!-- شاشة البدء -->
+<div id="onboardingScreen" class="onboarding-screen">
+  <div class="onboarding-card">
+    <h1>خفف</h1>
+    <p>لنبدأ رحلة التحفيز</p>
+    <div class="input-group"><label>العمر (بالسنوات)</label><input type="number" id="ageInput" placeholder="مثال: 30" min="15" max="100" value="30"></div>
+    <div class="input-group"><label>الوزن (كجم)</label><input type="number" id="weightInput" placeholder="مثال: 70" min="30" max="250" value="70" step="0.1"></div>
+    <div class="input-group"><label>الطول (سم)</label><input type="number" id="heightInput" placeholder="مثال: 170" min="100" max="250" value="170"></div>
+    <div class="input-group"><label>الجنس</label><select id="genderSelect"><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
+    <div class="input-group">
+      <label>مستوى النشاط اليومي</label>
+      <select id="activitySelect">
+        <option value="1.2">قليل الحركة (طالب، عمل مكتبي)</option>
+        <option value="1.375" selected>نشاط خفيف (تمارين 1-3 أيام/أسبوع)</option>
+        <option value="1.55">نشاط متوسط (تمارين 3-5 أيام/أسبوع)</option>
+        <option value="1.725">نشاط عالٍ (تمارين يومية مكثفة)</option>
+        <option value="1.9">نشاط مكثف (رياضي محترف)</option>
+      </select>
+    </div>
+    <button class="btn-primary" id="saveProfileBtn">ابدأ</button>
+  </div>
+</div>
+
+<!-- التطبيق الرئيسي -->
+<div id="mainApp" class="app-container hidden">
+  <div class="header">
+    <h2>خفف</h2>
+    <div class="header-icons">
+      <button class="icon-btn" id="profileEditBtn" title="تعديل الملف الشخصي">👤</button>
+      <button class="icon-btn" id="menuToggleBtn">☰</button>
+    </div>
+  </div>
+  <div class="today-card">
+    <div class="today-header">
+      <span class="date-badge" id="todayDateLabel"></span>
+      <span class="profile-trigger" id="profileTrigger"><span>👤</span> <span id="userGreeting">مستخدم</span></span>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-value" id="eatenValue">0</div><div class="stat-label">سعرة مأكولة</div></div>
+      <div class="stat-item"><div class="stat-value" id="burnedValue">0</div><div class="stat-label">سعرة محروقة</div></div>
+    </div>
+    <div id="deficitDisplay" class="deficit-badge">عجز: 0 سعرة</div>
+    <div id="tdeeDisplay" class="tdee-info">⚡ احتياجك اليومي: 0 سعرة</div>
+    
+    <div class="weight-row">
+      <div class="weight-item">
+        <div class="weight-label">⚖️ الوزن الحالي</div>
+        <div><span class="weight-value" id="currentWeightValue">70.0</span><span class="weight-unit">كجم</span></div>
+      </div>
+      <div class="weight-item">
+        <div class="weight-label">📉 الوزن المتوقع</div>
+        <div><span class="weight-value" id="predictedWeightValue">70.0</span><span class="weight-unit">كجم</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="history-title">📅 الأيام السابقة</div>
+  <div class="history-list" id="historyListContainer"></div>
+</div>
+
+<!-- القائمة الجانبية -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">القائمة</div>
+  <ul class="drawer-menu">
+    <li id="menuEatEntry"><span class="emoji-icon">🍽️</span> كم سعرة أكلت اليوم</li>
+    <li id="menuWalkEntry"><span class="emoji-icon">🚶</span> كم سعرة حرقت اليوم</li>
+    <li id="menuCameraEntry"><span class="emoji-icon">📸</span> صوّر وجبتك</li>
+    <li id="menuCalendar"><span class="emoji-icon">📆</span> التقويم</li>
+    <li id="menuDeficitDetails"><span class="emoji-icon">⚖️</span> عجز اليوم</li>
+  </ul>
+</div>
+
+<!-- مودال الأكل -->
+<div class="modal" id="eatModal">
+  <div class="modal-content">
+    <h3>🍽️ سعرات اليوم</h3>
+    <div class="modal-input"><label>كم سعرة أكلت؟</label><input type="number" id="eatCaloriesInput" placeholder="أدخل السعرات" min="0" step="10"></div>
+    <div class="modal-actions"><button class="btn-secondary" id="cancelEatBtn">إلغاء</button><button class="btn-primary" id="saveEatBtn" style="margin-top:0;">حفظ</button></div>
+  </div>
+</div>
+
+<!-- مودال المشي -->
+<div class="modal" id="walkModal">
+  <div class="modal-content">
+    <h3>🚶 حرق المشي</h3>
+    <div class="modal-input"><label>المسافة (متر)</label><input type="number" id="distanceInput" placeholder="مثال: 2000" min="0" step="100"></div>
+    <div class="modal-input"><label>الزمن (دقائق:ثواني)</label><div style="display: flex; gap: 8px;"><input type="number" id="walkMinutes" placeholder="دقائق" min="0" value="0" style="width:50%"><input type="number" id="walkSeconds" placeholder="ثواني" min="0" max="59" value="0" style="width:50%"></div></div>
+    <div id="speedDisplay" class="speed-info hidden"></div>
+    <div class="modal-actions"><button class="btn-secondary" id="cancelWalkBtn">إلغاء</button><button class="btn-primary" id="saveWalkBtn" style="margin-top:0;">حساب وحفظ</button></div>
+  </div>
+</div>
+
+<!-- مودال الكاميرا -->
+<div class="modal" id="cameraModal">
+  <div class="modal-content" style="max-width: 450px;">
+    <h3>📸 صوّر وجبتك</h3>
+    <div class="camera-container">
+      <video id="cameraVideo" autoplay playsinline></video>
+      <canvas id="captureCanvas"></canvas>
+      <div class="camera-controls">
+        <button class="btn-secondary" id="captureBtn">📷 التقاط</button>
+        <button class="btn-secondary" id="closeCameraBtn">إلغاء</button>
+      </div>
+      <div id="analysisStatus" style="margin-top:12px; font-weight:500;"></div>
+      <div id="analysisResult" class="analysis-result hidden"></div>
+    </div>
+  </div>
+</div>
+
+<!-- مودال التقويم -->
+<div class="modal" id="calendarModal">
+  <div class="modal-content" style="max-width: 400px;">
+    <h3>📆 التقويم والعجز</h3>
+    <div class="calendar-container" id="calendarContent"></div>
+    <div class="modal-actions"><button class="btn-secondary" id="closeCalendarBtn">إغلاق</button></div>
+  </div>
+</div>
+
+<!-- مودال تفاصيل العجز -->
+<div class="modal" id="deficitModal">
+  <div class="modal-content">
+    <h3>⚖️ تفاصيل عجز اليوم</h3>
+    <div id="deficitDetailsText" style="margin-bottom: 16px;"></div>
+    <div class="modal-actions"><button class="btn-secondary" id="closeDeficitBtn">حسناً</button></div>
+  </div>
+</div>
+
+<!-- مودال تعديل الملف الشخصي -->
+<div class="modal profile-modal" id="profileModal">
+  <div class="modal-content">
+    <h3>👤 تعديل البيانات</h3>
+    <div class="input-group"><label>العمر</label><input type="number" id="editAge" min="15" max="100"></div>
+    <div class="input-group"><label>الوزن الحالي (كجم)</label><input type="number" id="editWeight" min="30" max="250" step="0.1"></div>
+    <div class="input-group"><label>الطول (سم)</label><input type="number" id="editHeight" min="100" max="250"></div>
+    <div class="input-group"><label>الجنس</label><select id="editGender"><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
+    <div class="input-group">
+      <label>مستوى النشاط</label>
+      <select id="editActivity">
+        <option value="1.2">قليل الحركة</option>
+        <option value="1.375">نشاط خفيف</option>
+        <option value="1.55">نشاط متوسط</option>
+        <option value="1.725">نشاط عالٍ</option>
+        <option value="1.9">نشاط مكثف</option>
+      </select>
+    </div>
+    <div class="modal-actions"><button class="btn-secondary" id="cancelProfileBtn">إلغاء</button><button class="btn-primary" id="updateProfileBtn">تحديث</button></div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    "use strict";
+
+    const GEMINI_API_KEY = 'AIzaSyDddclPre5pQwUVFMGOIqnkD1j4LBxWcOE';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+    function getTodayStr() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+
+    let userData = {
+      age: 30, weight: 70, height: 170, gender: 'male', activityLevel: '1.375',
+      registrationDate: getTodayStr(), initialWeight: 70
+    };
+    let dailyLogs = {};
+
+    function loadData() {
+      const savedUser = localStorage.getItem('khaffef_user');
+      if(savedUser) { try { userData = JSON.parse(savedUser); } catch(e){} }
+      if (!userData.activityLevel) userData.activityLevel = '1.375';
+      if (!userData.initialWeight) userData.initialWeight = userData.weight;
+      const savedLogs = localStorage.getItem('khaffef_logs');
+      if(savedLogs) { try { dailyLogs = JSON.parse(savedLogs); } catch(e){} }
+      if(!userData.registrationDate) userData.registrationDate = getTodayStr();
+    }
+    function saveUser() { localStorage.setItem('khaffef_user', JSON.stringify(userData)); }
+    function saveLogs() { localStorage.setItem('khaffef_logs', JSON.stringify(dailyLogs)); }
+
+    function calculateBMR() {
+      const { age, weight, height, gender } = userData;
+      return gender === 'male' ? (10 * weight) + (6.25 * height) - (5 * age) + 5 : (10 * weight) + (6.25 * height) - (5 * age) - 161;
+    }
+    function calculateTDEE() {
+      return Math.round(calculateBMR() * (parseFloat(userData.activityLevel) || 1.375));
+    }
+    function getMETFromSpeed(speedKmh) {
+      if (speedKmh < 3.5) return 2.5; if (speedKmh < 5.6) return 3.5;
+      if (speedKmh < 7.6) return 5.0; if (speedKmh < 9.6) return 7.0; return 9.5;
+    }
+    function calculateWalkingCalories(distanceMeters, minutes, seconds) {
+      const weight = userData.weight, totalMinutes = minutes + seconds / 60;
+      if (totalMinutes <= 0) return { calories: 0, speed: 0, met: 2.5 };
+      const distanceKm = distanceMeters / 1000, timeHours = totalMinutes / 60;
+      const speedKmh = distanceKm / timeHours, met = getMETFromSpeed(speedKmh);
+      return { calories: Math.round((met * 3.5 * weight) / 200 * totalMinutes), speed: speedKmh, met };
+    }
+    function computeDeficit(eaten, burned) { return (calculateTDEE() + burned) - eaten; }
+    function calculateTotalDeficit() {
+      let total = 0; const today = getTodayStr();
+      for (let date in dailyLogs) if (date <= today) total += computeDeficit(dailyLogs[date].eaten, dailyLogs[date].burned);
+      return total;
+    }
+    function calculatePredictedWeight() { return userData.initialWeight - (calculateTotalDeficit() / 7700); }
+    function ensureTodayLog() {
+      const today = getTodayStr();
+      if(!dailyLogs[today]) { dailyLogs[today] = { eaten: 0, burned: 0 }; saveLogs(); }
+      return dailyLogs[today];
+    }
+
+    function updateTodayUI() {
+      const today = getTodayStr(), log = dailyLogs[today] || { eaten:0, burned:0 };
+      const eaten = log.eaten||0, burned = log.burned||0, tdee = calculateTDEE(), deficit = computeDeficit(eaten,burned);
+      document.getElementById('eatenValue').textContent = eaten;
+      document.getElementById('burnedValue').textContent = burned;
+      const deficitEl = document.getElementById('deficitDisplay');
+      deficitEl.textContent = `${deficit >= 0 ? 'عجز' : 'فائض'}: ${Math.abs(Math.round(deficit))} سعرة`;
+      deficitEl.className = `deficit-badge ${deficit >= 0 ? 'deficit-positive' : 'deficit-negative'}`;
+      document.getElementById('tdeeDisplay').textContent = `⚡ احتياجك اليومي: ${tdee} سعرة`;
+      document.getElementById('currentWeightValue').textContent = userData.weight.toFixed(1);
+      document.getElementById('predictedWeightValue').textContent = calculatePredictedWeight().toFixed(1);
+      document.getElementById('todayDateLabel').textContent = new Intl.DateTimeFormat('ar-EG', {year:'numeric',month:'long',day:'numeric'}).format(new Date());
+      const actLabels = {'1.2':'قليل','1.375':'خفيف','1.55':'متوسط','1.725':'عالٍ','1.9':'مكثف'};
+      document.getElementById('userGreeting').textContent = `${userData.gender==='male'?'أخي':'أختي'} (${userData.weight.toFixed(1)} كجم | ⚡ ${actLabels[userData.activityLevel]||'خفيف'})`;
+    }
+
+    function renderHistory() {
+      const container = document.getElementById('historyListContainer'), dates = Object.keys(dailyLogs).sort().reverse(), today = getTodayStr();
+      let html = '';
+      for(let d of dates) {
+        if(d === today) continue;
+        const log = dailyLogs[d], deficit = computeDeficit(log.eaten, log.burned);
+        const formatted = new Intl.DateTimeFormat('ar-EG', {month:'short', day:'numeric'}).format(new Date(d));
+        html += `<div class="day-item"><div class="day-info"><span class="day-date">${formatted}</span><div class="day-details"><span>🍽️ ${log.eaten}</span><span>🔥 ${log.burned}</span></div></div><div class="day-deficit ${deficit>=0?'deficit-positive':'deficit-negative'}">${deficit>=0?'عجز':'فائض'} ${Math.abs(Math.round(deficit))}</div></div>`;
+      }
+      container.innerHTML = html || '<div style="text-align:center; padding:20px;color:#888;">لا توجد أيام سابقة بعد</div>';
+    }
+
+    function refreshUI() { ensureTodayLog(); updateTodayUI(); renderHistory(); }
+
+    // ----- الكاميرا والتحليل -----
+    const cameraModal = document.getElementById('cameraModal');
+    const video = document.getElementById('cameraVideo');
+    const canvas = document.getElementById('captureCanvas');
+    const captureBtn = document.getElementById('captureBtn');
+    const closeCameraBtn = document.getElementById('closeCameraBtn');
+    const analysisStatus = document.getElementById('analysisStatus');
+    const analysisResultDiv = document.getElementById('analysisResult');
+    let stream = null;
+
+    async function openCameraModal() {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        video.srcObject = stream;
+        cameraModal.classList.add('open');
+        analysisStatus.textContent = '';
+        analysisResultDiv.classList.add('hidden');
+      } catch(e) {
+        alert('تعذر الوصول إلى الكاميرا. تأكد من منح الإذن.');
+      }
+    }
+
+    function closeCamera() {
+      if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+      cameraModal.classList.remove('open');
+    }
+
+    captureBtn.addEventListener('click', () => {
+      if (!stream) return;
+      canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      const imageBase64 = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
+      analysisStatus.textContent = '⏳ جاري تحليل الصورة...';
+      analyzeFoodImage(imageBase64);
+    });
+
+    async function analyzeFoodImage(base64Image) {
+      try {
+        const prompt = `أنت خبير تغذية. حلل صورة الطعام هذه وقم فقط بتقدير عدد السعرات الحرارية الإجمالية في الوجبة.
+أعد الرد بتنسيق JSON صارم يحتوي على الحقول التالية:
+{
+  "meal_description": "وصف مختصر للوجبة بالعربية",
+  "estimated_calories": رقم صحيح
+}
+لا تقم بتضمين أي نص آخر خارج JSON.`;
+        const response = await fetch(GEMINI_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }, { inline_data: { mime_type: 'image/jpeg', data: base64Image } }] }]
+          })
+        });
+        const data = await response.json();
+        if (!data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
+          throw new Error('لم يتم استلام رد صحيح من Gemini');
+        }
+        let jsonText = data.candidates[0].content.parts[0].text;
+        jsonText = jsonText.replace(/```json|```/g, '').trim();
+        const result = JSON.parse(jsonText);
+        const calories = Math.round(result.estimated_calories) || 0;
+        const desc = result.meal_description || 'وجبة';
+        analysisStatus.textContent = '';
+        analysisResultDiv.classList.remove('hidden');
+        analysisResultDiv.innerHTML = `
+          <p><strong>🍽️ ${desc}</strong></p>
+          <p style="font-size:28px; margin:8px 0;">🔥 ${calories} سعرة</p>
+          <div style="display:flex; gap:10px; margin-top:12px;">
+            <button class="btn-primary" id="addAnalyzedCaloriesBtn" style="flex:1;">✅ إضافة</button>
+            <button class="btn-secondary" id="cancelAnalyzedCaloriesBtn" style="flex:1;">❌ إلغاء</button>
+          </div>
+        `;
+        document.getElementById('addAnalyzedCaloriesBtn').addEventListener('click', () => {
+          const today = getTodayStr();
+          if (!dailyLogs[today]) dailyLogs[today] = { eaten:0, burned:0 };
+          dailyLogs[today].eaten += calories;
+          saveLogs(); refreshUI();
+          closeCamera();
+        });
+        document.getElementById('cancelAnalyzedCaloriesBtn').addEventListener('click', closeCamera);
+      } catch (error) {
+        analysisStatus.textContent = '❌ حدث خطأ: ' + error.message;
+        console.error(error);
+      }
+    }
+
+    closeCameraBtn.addEventListener('click', closeCamera);
+    document.getElementById('menuCameraEntry').addEventListener('click', () => {
+      closeDrawer();
+      openCameraModal();
+    });
+
+    // ----- باقي الوظائف -----
+    function initApp() {
+      loadData();
+      if(!localStorage.getItem('khaffef_user')) {
+        document.getElementById('onboardingScreen').classList.remove('hidden');
+        document.getElementById('mainApp').classList.add('hidden');
+      } else {
+        document.getElementById('onboardingScreen').classList.add('hidden');
+        document.getElementById('mainApp').classList.remove('hidden');
+        if(!userData.registrationDate) userData.registrationDate = getTodayStr();
+        saveUser(); ensureTodayLog(); refreshUI();
+      }
+    }
+
+    document.getElementById('saveProfileBtn').addEventListener('click', function(){
+      const w = parseFloat(document.getElementById('weightInput').value) || 70;
+      userData = {
+        age: parseInt(document.getElementById('ageInput').value) || 30, weight: w,
+        height: parseInt(document.getElementById('heightInput').value) || 170,
+        gender: document.getElementById('genderSelect').value,
+        activityLevel: document.getElementById('activitySelect').value,
+        registrationDate: getTodayStr(), initialWeight: w
+      };
+      saveUser(); dailyLogs = {}; ensureTodayLog();
+      document.getElementById('onboardingScreen').classList.add('hidden');
+      document.getElementById('mainApp').classList.remove('hidden');
+      refreshUI();
+    });
+
+    const drawer = document.getElementById('drawer'), overlay = document.getElementById('drawerOverlay');
+    function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); }
+    function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+    document.getElementById('menuToggleBtn').addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+
+    document.getElementById('menuEatEntry').addEventListener('click', ()=>{ closeDrawer(); document.getElementById('eatModal').classList.add('open'); document.getElementById('eatCaloriesInput').value = ''; });
+    document.getElementById('menuWalkEntry').addEventListener('click', ()=>{ closeDrawer(); document.getElementById('walkModal').classList.add('open'); document.getElementById('distanceInput').value = ''; document.getElementById('walkMinutes').value='0'; document.getElementById('walkSeconds').value='0'; document.getElementById('speedDisplay').classList.add('hidden'); });
+    document.getElementById('menuCalendar').addEventListener('click', ()=>{ closeDrawer(); renderCalendar(); document.getElementById('calendarModal').classList.add('open'); });
+    document.getElementById('menuDeficitDetails').addEventListener('click', ()=>{ closeDrawer(); showDeficitDetails(); document.getElementById('deficitModal').classList.add('open'); });
+
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    document.getElementById('cancelEatBtn').addEventListener('click', ()=> closeModal('eatModal'));
+    document.getElementById('cancelWalkBtn').addEventListener('click', ()=> closeModal('walkModal'));
+    document.getElementById('closeCalendarBtn').addEventListener('click', ()=> closeModal('calendarModal'));
+    document.getElementById('closeDeficitBtn').addEventListener('click', ()=> closeModal('deficitModal'));
+
+    document.getElementById('saveEatBtn').addEventListener('click', function(){
+      const val = parseFloat(document.getElementById('eatCaloriesInput').value);
+      if(!isNaN(val) && val>=0) {
+        const today = getTodayStr(); if(!dailyLogs[today]) dailyLogs[today]={eaten:0,burned:0};
+        dailyLogs[today].eaten = Math.round(val); saveLogs(); refreshUI();
+      }
+      closeModal('eatModal');
+    });
+    document.getElementById('saveWalkBtn').addEventListener('click', function(){
+      const dist = parseFloat(document.getElementById('distanceInput').value);
+      const mins = parseInt(document.getElementById('walkMinutes').value)||0, secs = parseInt(document.getElementById('walkSeconds').value)||0;
+      if(!isNaN(dist) && dist>=0 && (mins+secs)>0) {
+        const res = calculateWalkingCalories(dist,mins,secs);
+        document.getElementById('speedDisplay').textContent = `🏃 السرعة: ${res.speed.toFixed(1)} كم/س | MET: ${res.met} | 🔥 ${res.calories} سعرة`;
+        document.getElementById('speedDisplay').classList.remove('hidden');
+        const today = getTodayStr(); if(!dailyLogs[today]) dailyLogs[today]={eaten:0,burned:0};
+        dailyLogs[today].burned += res.calories; saveLogs(); refreshUI();
+        setTimeout(()=>closeModal('walkModal'), 2000);
+      } else alert('أدخل مسافة وزمن صحيحين');
+    });
+
+    function showDeficitDetails() {
+      const today = getTodayStr(), log = dailyLogs[today]||{eaten:0,burned:0};
+      const bmr = calculateBMR(), tdee = calculateTDEE(), totalOut = tdee + log.burned, deficit = totalOut - log.eaten;
+      const totalDeficit = calculateTotalDeficit();
+      const actLabels = {'1.2':'قليل','1.375':'خفيف','1.55':'متوسط','1.725':'عالٍ','1.9':'مكثف'};
+      document.getElementById('deficitDetailsText').innerHTML = `
+        <p>🔥 BMR: ${Math.round(bmr)} سعرة</p><p>⚡ النشاط: ${actLabels[userData.activityLevel]} (${userData.activityLevel})</p>
+        <p>📊 TDEE: ${tdee} سعرة</p><p>🚶 مشي: ${log.burned}</p><p>🍽️ أكل: ${log.eaten}</p>
+        <p><strong>${deficit>=0?'العجز':'الفائض'}: ${Math.abs(Math.round(deficit))} سعرة</strong></p>
+        <hr><p>📅 إجمالي العجز التراكمي: ${Math.round(totalDeficit)} سعرة</p><p>⚖️ خسارة متوقعة: ${(totalDeficit/7700).toFixed(2)} كجم</p>`;
+    }
+
+    function renderCalendar() {
+      const today = new Date(), y = today.getFullYear(), m = today.getMonth();
+      const firstDay = new Date(y,m,1), lastDay = new Date(y,m+1,0), start = firstDay.getDay();
+      let html = `<div class="calendar-month">${new Intl.DateTimeFormat('ar-EG',{month:'long',year:'numeric'}).format(today)}</div><div class="calendar-grid">`;
+      ['سبت','أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة'].forEach(d=>html+=`<div style="font-weight:bold;">${d}</div>`);
+      let day=1;
+      for(let i=0;i<6;i++) for(let j=0;j<7;j++) {
+        if(i===0 && j<start) html+='<div></div>';
+        else if(day<=lastDay.getDate()) {
+          const ds = `${y}-${String(m+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+          const log = dailyLogs[ds], deficit = log ? computeDeficit(log.eaten, log.burned) : null;
+          let cls = 'cal-day'; if(deficit!==null) cls+= deficit>=0?' deficit':' surplus';
+          if(ds===getTodayStr()) cls+=' today-ring';
+          html+=`<div class="${cls}" data-date="${ds}">${day++}</div>`;
+        } else html+='<div></div>';
+      }
+      html+='</div>'; document.getElementById('calendarContent').innerHTML = html;
+      document.querySelectorAll('.cal-day[data-date]').forEach(el=>el.addEventListener('click',function(){
+        const ds=this.dataset.date, log=dailyLogs[ds];
+        if(log){ const def=computeDeficit(log.eaten,log.burned); alert(`${ds}\n🍽️ ${log.eaten}\n🔥 ${log.burned}\n${def>=0?'عجز':'فائض'}: ${Math.abs(Math.round(def))}`);}
+        else alert('لا بيانات');
+      }));
+    }
+
+    function openProfileModal() {
+      document.getElementById('editAge').value = userData.age; document.getElementById('editWeight').value = userData.weight;
+      document.getElementById('editHeight').value = userData.height; document.getElementById('editGender').value = userData.gender;
+      document.getElementById('editActivity').value = userData.activityLevel; document.getElementById('profileModal').classList.add('open');
+    }
+    document.getElementById('profileEditBtn').addEventListener('click', openProfileModal);
+    document.getElementById('profileTrigger').addEventListener('click', openProfileModal);
+    document.getElementById('cancelProfileBtn').addEventListener('click', ()=>closeModal('profileModal'));
+    document.getElementById('updateProfileBtn').addEventListener('click', function(){
+      const newW = parseFloat(document.getElementById('editWeight').value)||userData.weight;
+      if(Math.abs(newW - userData.weight)>0.1) userData.initialWeight = newW;
+      userData.age = parseInt(document.getElementById('editAge').value)||userData.age;
+      userData.weight = newW; userData.height = parseInt(document.getElementById('editHeight').value)||userData.height;
+      userData.gender = document.getElementById('editGender').value;
+      userData.activityLevel = document.getElementById('editActivity').value;
+      saveUser(); refreshUI(); closeModal('profileModal');
+    });
+
+    initApp();
+  })();
+</script>
+</body>
+</html>
